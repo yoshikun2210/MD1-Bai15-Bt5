@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    class Rat {
+        constructor(name, weight, speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.alive = true;
+        }
+
+        getAlive() {
+            return this.alive;
+        }
+
+        setAlive(value) {
+            this.alive = value;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(value) {
+            this.name = value;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        setWeight(value) {
+            this.weight = value;
+        }
+
+        getSpeed() {
+            return this.speed;
+        }
+
+        setSpeed(value) {
+            this.speed = value;
+        }
+
+        say() {
+            console.log('chit chit');
+        }
+    }
+
+    class Cat {
+        constructor(name, weight, maxSpeed) {
+            this.name = name;
+            this.weight = weight;
+            this.maxSpeed = maxSpeed;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(value) {
+            this.name = value;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        setWeight(value) {
+            this.weight = value;
+        }
+
+        say() {
+            console.log('meo meo');
+        }
+
+        catch(Rat) {
+            if (Math.random() * this.maxSpeed > Rat.getSpeed()) {
+                console.log('Da bat duoc chuot');
+                Rat.setSpeed(0);
+            } else {
+                console.log('Chuot da chay mat');
+            }
+        }
+
+        eat(Rat) {
+            if (Rat.getAlive() && Rat.getSpeed() == 0) {
+                console.log('Meo an chuot');
+                this.setWeight(this.getWeight() + Rat.getWeight());
+            }
+        }
+    }
+
+    let cat = new Cat('Tom', 10, 20);
+    let rat = new Rat('Mic', 2, 10);
+
+
+</script>
+</body>
+</html>
